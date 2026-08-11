@@ -1,0 +1,152 @@
+<script setup lang="ts">
+const authStore =
+  useAuthStore()
+</script>
+
+<template>
+  <section
+    class="
+      relative
+      overflow-hidden
+      rounded-[34px]
+      bg-slate-950
+      p-7
+      text-white
+      shadow-xl
+      md:p-10
+    "
+  >
+    <div
+      class="
+        absolute
+        -left-20
+        -top-20
+        h-64
+        w-64
+        rounded-full
+        bg-indigo-600/30
+        blur-[90px]
+      "
+    />
+
+    <div
+      class="
+        relative
+        flex
+        flex-col
+        gap-7
+        md:flex-row
+        md:items-center
+        md:justify-between
+      "
+    >
+      <div
+        class="
+          flex
+          items-center
+          gap-5
+        "
+      >
+        <img
+          v-if="
+            authStore.user?.avatar
+          "
+          :src="
+            authStore.user.avatar
+          "
+          :alt="
+            authStore.user.name
+          "
+          class="
+            h-20
+            w-20
+            rounded-[26px]
+            border
+            border-white/15
+            object-cover
+          "
+        >
+
+        <div
+          v-else
+          class="
+            flex
+            h-20
+            w-20
+            items-center
+            justify-center
+            rounded-[26px]
+            bg-white/10
+            text-3xl
+            font-black
+          "
+        >
+          {{
+            authStore.user?.name
+              ?.charAt(0)
+              || 'N'
+          }}
+        </div>
+
+        <div>
+          <span
+            class="
+              text-sm
+              font-bold
+              text-indigo-300
+            "
+          >
+            پنل کاربری NEXORA
+          </span>
+
+          <h1
+            class="
+              mt-2
+              text-3xl
+              font-black
+            "
+          >
+            سلام
+            {{
+              authStore.user?.name
+              || 'کاربر'
+            }}
+            👋
+          </h1>
+
+          <p
+            class="
+              mt-3
+              text-sm
+              text-white/55
+            "
+          >
+            {{
+              authStore.user?.email
+              || 'مدیریت سفارش‌ها و حساب کاربری'
+            }}
+          </p>
+        </div>
+      </div>
+
+      <button
+        class="
+          rounded-2xl
+          border
+          border-white/15
+          bg-white/10
+          px-6
+          py-4
+          font-bold
+          transition
+          hover:bg-white/15
+        "
+        @click="
+          authStore.logout
+        "
+      >
+        خروج از حساب
+      </button>
+    </div>
+  </section>
+</template>
