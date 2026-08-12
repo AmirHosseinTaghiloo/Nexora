@@ -115,15 +115,25 @@ stock
 ```
 
 # 📷 پیش نمایش
+Preview 1 :
 ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/1.png)
+Preview 2 :
 ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/2.png)
+Preview 3 :
 ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/3.png)
+Preview 4 :
 ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/4.png)
+Preview 5 :
 ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/5.png)
+Preview 6 :
 ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/6.png)
+Preview 7 :
 ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/7.png)
+Preview 8 :
 ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/8.png)
+Preview 9 :
 ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/9.png)
+Preview 10 :
 ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/banner-c.png)
 
 
