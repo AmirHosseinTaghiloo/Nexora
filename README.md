@@ -113,6 +113,10 @@ rating
 reviews
 stock
 ```
+
+# 📷 پیش نمایش
+ ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/public/images/Preview/1.png)
+
 ```txt
 // ساختار
 nexora/
