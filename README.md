@@ -115,7 +115,18 @@ stock
 ```
 
 # 📷 پیش نمایش
- ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/1.png)
+![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/1.png)
+![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/2.png)
+![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/3.png)
+![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/4.png)
+![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/5.png)
+![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/6.png)
+![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/7.png)
+![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/8.png)
+![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/9.png)
+![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/banner-c.png)
+
+
 
 ```txt
 // ساختار
