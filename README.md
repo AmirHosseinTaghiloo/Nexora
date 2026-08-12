@@ -115,7 +115,7 @@ stock
 ```
 
 # 📷 پیش نمایش
- ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/public/images/Preview/1.png)
+ ![Project Screenshot](https://github.com/AmirHosseinTaghiloo/Nexora/blob/main/public/images/Preview/1.png)
 
 ```txt
 // ساختار
