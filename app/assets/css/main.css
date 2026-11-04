@@ -4,7 +4,7 @@
   font-family: "Estedad";
 
   src:
-    url("../fonts/Estedad-Regular.woff2")
+    url("/fonts/Estedad-Regular.woff2")
     format("woff2");
 
   font-weight: 400;
@@ -18,7 +18,7 @@
   font-family: "Estedad";
 
   src:
-    url("../fonts/Estedad-Medium.woff2")
+    url("/fonts/Estedad-Medium.woff2")
     format("woff2");
 
   font-weight: 500;
@@ -32,7 +32,7 @@
   font-family: "Estedad";
 
   src:
-    url("../fonts/Estedad-SemiBold.woff2")
+    url("/fonts/Estedad-SemiBold.woff2")
     format("woff2");
 
   font-weight: 600;
@@ -46,7 +46,7 @@
   font-family: "Estedad";
 
   src:
-    url("../fonts/Estedad-Bold.woff2")
+    url("/fonts/Estedad-Bold.woff2")
     format("woff2");
 
   font-weight: 700;
@@ -60,7 +60,7 @@
   font-family: "Estedad";
 
   src:
-    url("../fonts/Estedad-Black.woff2")
+    url("/fonts/Estedad-Black.woff2")
     format("woff2");
 
   font-weight: 900;

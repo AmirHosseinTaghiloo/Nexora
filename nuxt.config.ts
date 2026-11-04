@@ -1,3 +1,6 @@
+
+import tailwindcss from '@tailwindcss/vite'
+
 export default defineNuxtConfig({
   compatibilityDate: '2026-08-04',
 
@@ -14,10 +17,10 @@ export default defineNuxtConfig({
     '~/assets/css/main.css'
   ],
 
-  postcss: {
-    plugins: {
-      '@tailwindcss/postcss': {}
-    }
+  vite: {
+    plugins: [
+      tailwindcss()
+    ]
   },
 
   runtimeConfig: {
