@@ -17,5 +17,5 @@ export default defineEventHandler((event) => {
     'User-agent: *',
     'Allow: /',
     `Sitemap: ${siteUrl}/sitemap.xml`
-  ].join('\\n')
+  ].join('\n')
 })
