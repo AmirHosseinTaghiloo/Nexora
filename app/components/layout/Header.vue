@@ -63,7 +63,10 @@ function searchProducts() {
         container-shop
         flex
         h-16
+        w-full
+        min-w-0
         items-center
+        justify-between
         gap-2
         px-3
         sm:h-20
@@ -102,11 +105,18 @@ function searchProducts() {
       <NuxtLink
         to="/"
         class="
+          flex
+          min-w-0
+          flex-1
+          items-center
+          justify-center
           text-2xl
           font-black
           tracking-tight
           text-white
           sm:text-3xl
+          lg:flex-none
+          lg:justify-start
         "
       >
         <img
@@ -114,7 +124,7 @@ function searchProducts() {
           class="
             block
             h-auto
-            w-[clamp(112px,34vw,180px)]
+            w-[clamp(100px,30vw,170px)]
             max-w-full
             rounded-2xl
             sm:w-auto
@@ -194,8 +204,10 @@ function searchProducts() {
       <div
         class="
           flex
+          shrink-0
           items-center
-          gap-2
+          gap-1
+          sm:gap-2
         "
       >
         <NuxtLink
