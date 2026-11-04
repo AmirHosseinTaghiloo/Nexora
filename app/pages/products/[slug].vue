@@ -171,7 +171,13 @@ const zoomX = ref(50)
 const zoomY = ref(50)
 const isZooming = ref(false)
 
+function supportsHoverZoom() {
+  return import.meta.client && window.matchMedia('(hover: hover) and (pointer: fine)').matches
+}
+
 function handleZoom(event: MouseEvent) {
+  if (!supportsHoverZoom()) return
+
   const target = event.currentTarget as HTMLElement
 
   const rect = target.getBoundingClientRect()
@@ -187,6 +193,7 @@ function handleZoom(event: MouseEvent) {
 }
 
 function startZoom() {
+  if (!supportsHoverZoom()) return
   isZooming.value = true
 }
 
@@ -401,6 +408,7 @@ onMounted(() => {
         <div
           class="
             grid
+            min-w-0
             gap-10
             p-5
             md:p-8
@@ -412,7 +420,7 @@ onMounted(() => {
           <!-- GALLERY -->
           <!-- ================================================= -->
 
-          <div>
+          <div class="min-w-0">
 
             <!-- Main Image -->
             <div
@@ -435,8 +443,11 @@ onMounted(() => {
                 loading="eager"
                 decoding="async"
                 class="
-                  h-[420px]
+                  block
+                  h-[320px]
                   w-full
+                  max-w-full
+                  sm:h-[420px]
                   select-none
                   object-contain
                   p-6
@@ -639,7 +650,7 @@ onMounted(() => {
           <!-- PRODUCT INFO -->
           <!-- ================================================= -->
 
-          <div class="flex flex-col">
+          <div class="flex min-w-0 flex-col">
 
             <!-- Category -->
             <span
@@ -662,9 +673,11 @@ onMounted(() => {
             <h1
               class="
                 mt-5
-                text-3xl
+                break-words
+                text-2xl
                 font-black
                 leading-tight
+                sm:text-3xl
                 md:text-4xl
               "
             >
@@ -736,8 +749,10 @@ onMounted(() => {
               <div
                 class="
                   mt-2
-                  text-3xl
+                  break-words
+                  text-2xl
                   font-black
+                  sm:text-3xl
                 "
               >
                 {{ formatPrice(product!.price) }}
@@ -864,7 +879,9 @@ onMounted(() => {
                 mt-8
                 grid
                 gap-3
-                sm:grid-cols-[1fr_auto]
+                min-w-0
+                grid-cols-1
+                sm:grid-cols-[minmax(0,1fr)_auto]
               "
             >
 
@@ -872,6 +889,8 @@ onMounted(() => {
                 type="button"
                 :disabled="!product?.stock"
                 class="
+                  min-w-0
+                  whitespace-normal
                   rounded-2xl
                   bg-brand
                   px-6
@@ -1041,8 +1060,9 @@ onMounted(() => {
   <!-- Reviews & Rating -->
         <section
           class="
-            w-[1150px]
-            container-shop
+            w-full
+            min-w-0
+            max-w-full
             flex
             flex-col
             mt-8

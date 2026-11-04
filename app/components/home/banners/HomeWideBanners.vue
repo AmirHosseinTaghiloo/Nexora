@@ -44,13 +44,13 @@ const samsungBanner = new URL(
           alt="Apple Watch"
           class="
             block
-            h-full
-            min-h-[150px]
+            h-auto
             w-full
-            object-cover
+            max-w-full
+            object-contain
             transition
             duration-700
-            group-hover:scale-105
+            md:group-hover:scale-[1.02]
           "
         />
 
@@ -77,13 +77,13 @@ const samsungBanner = new URL(
           alt="Samsung"
           class="
             block
-            h-full
-            min-h-[220px]
+            h-auto
             w-full
-            object-cover
+            max-w-full
+            object-contain
             transition
             duration-700
-            group-hover:scale-105
+            md:group-hover:scale-[1.02]
           "
         />
 
