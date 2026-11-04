@@ -166,7 +166,7 @@ onMounted(
           hover:scale-105
         "
       >
-        <img src="C:\Users\AMT\Desktop\nexora\public\images\logo\logo-center-bgr.png" alt="">
+        <img src="/images/logo/logo-center-bgr.png" alt="">
       </NuxtLink>
 
       <!-- عنوان -->

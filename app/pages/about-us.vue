@@ -286,7 +286,7 @@ const services = [
         >
 
           <img
-            src="C:\Users\AMT\Desktop\nexora\public\images\logo\logo-center.png"
+            src="/images/logo/logo-center.png"
             alt="NEXORA Shopping"
             class="
               h-[360px]
