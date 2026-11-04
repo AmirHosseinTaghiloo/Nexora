@@ -1,4 +1,7 @@
+```vue
 <script setup lang="ts">
+import { motion } from 'motion-v'
+
 import HomeSquareBanners from '~/components/home/banners/HomeSquareBanners.vue'
 import HomeWideBanners from '~/components/home/banners/HomeWideBanners.vue'
 import { products } from '~/data/products'
@@ -15,52 +18,134 @@ const newestProducts = [...products]
 function handleAddToCart(product: Product) {
   cartStore.addToCart(product)
 }
+
+const animation = {
+  initial: {
+    opacity: 0,
+    y: 50
+  },
+  whileInView: {
+    opacity: 1,
+    y: 0
+  },
+  viewport: {
+    once: true,
+    amount: 0.15
+  },
+  transition: {
+    duration: 0.7,
+    ease: 'easeOut'
+  }
+}
 </script>
 
 <template>
+  <div class="overflow-hidden">
 
-  <div>
-    
+    <!-- Hero -->
+    <motion.div
+    >
+      <HomeHeroBanner />
+    </motion.div>
 
-    <HomeHeroBanner />
 
-    <HomeCategoryGrid />
+    <!-- Category -->
+    <motion.div
+      v-bind="animation"
+    >
+      <HomeCategoryGrid />
+    </motion.div>
 
-    <HomeSquareBanners/>
+
+    <!-- Square Banners -->
+    <motion.div
+      v-bind="animation"
+      :transition="{
+        duration: 0.8,
+        delay: 0.1,
+        ease: 'easeOut'
+      }"
+    >
+      <HomeSquareBanners />
+    </motion.div>
+
 
     <!-- پیشنهادهای ویژه -->
-    <HomeProductSection
-      title="پیشنهادهای ویژه"
-      subtitle="فرصت محدود"
-      :products="specialProducts"
-      link="/products"
-      @add-to-cart="handleAddToCart"
-    />
+    <motion.div
+      v-bind="animation"
+      :transition="{
+        duration: 0.8,
+        ease: 'easeOut'
+      }"
+    >
+      <HomeProductSection
+        title="پیشنهادهای ویژه"
+        subtitle="فرصت محدود"
+        :products="specialProducts"
+        link="/products"
+        @add-to-cart="handleAddToCart"
+      />
+    </motion.div>
 
-    
-    
-    <HomeWideBanners/>
+
+    <!-- Wide Banners -->
+    <motion.div
+      v-bind="animation"
+      :transition="{
+        duration: 0.8,
+        delay: 0.1,
+        ease: 'easeOut'
+      }"
+    >
+      <HomeWideBanners />
+    </motion.div>
 
 
+    <!-- Promo -->
+    <motion.div
+      v-bind="animation"
+      :transition="{
+        duration: 0.8,
+        ease: 'easeOut'
+      }"
+    >
+      <HomePromoBanner />
+    </motion.div>
 
-    <HomePromoBanner />
 
     <!-- جدیدترین محصولات -->
-    <HomeProductSection
-      title="جدیدترین محصولات"
-      subtitle="تازه‌واردها"
-      :products="newestProducts"
-      link="/products?sort=newest"
-      @add-to-cart="handleAddToCart"
-    />
+    <motion.div
+      v-bind="animation"
+      :transition="{
+        duration: 0.8,
+        ease: 'easeOut'
+      }"
+    >
+      <HomeProductSection
+        title="جدیدترین محصولات"
+        subtitle="تازه‌واردها"
+        :products="newestProducts"
+        link="/products?sort=newest"
+        @add-to-cart="handleAddToCart"
+      />
+    </motion.div>
+
 
     <!-- امکانات -->
-    <section
-      class="
-        container-shop
-        mt-20
-      "
+    <motion.section
+      class="container-shop mt-20"
+      :initial="{ opacity: 0, y: 60 }"
+      :whileInView="{ opacity: 1, y: 0 }"
+      :viewport="{
+        once: true,
+        amount: 0.2
+      }"
+      :transition="{
+        duration: 0.8,
+        ease: 'easeOut'
+      }"
     >
+
       <div
         class="
           grid
@@ -73,8 +158,33 @@ function handleAddToCart(product: Product) {
         "
       >
 
-        <div>
-          <div class="text-3xl">
+        <!-- ارسال سریع -->
+        <motion.div
+          class="
+            group
+            rounded-2xl
+            transition-colors
+            duration-300
+            hover:bg-white/5
+          "
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :whileHover="{ y: -6 }"
+          :viewport="{ once: true }"
+          :transition="{
+            duration: 0.5,
+            delay: 0.1,
+            ease: 'easeOut'
+          }"
+        >
+          <div
+            class="
+              text-3xl
+              transition-transform
+              duration-300
+              group-hover:scale-110
+            "
+          >
             🚚
           </div>
 
@@ -91,10 +201,36 @@ function handleAddToCart(product: Product) {
           >
             ارسال مطمئن به سراسر کشور
           </p>
-        </div>
+        </motion.div>
 
-        <div>
-          <div class="text-3xl">
+
+        <!-- خرید امن -->
+        <motion.div
+          class="
+            group
+            rounded-2xl
+            transition-colors
+            duration-300
+            hover:bg-white/5
+          "
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :whileHover="{ y: -6 }"
+          :viewport="{ once: true }"
+          :transition="{
+            duration: 0.5,
+            delay: 0.2,
+            ease: 'easeOut'
+          }"
+        >
+          <div
+            class="
+              text-3xl
+              transition-transform
+              duration-300
+              group-hover:scale-110
+            "
+          >
             🛡️
           </div>
 
@@ -111,10 +247,36 @@ function handleAddToCart(product: Product) {
           >
             تضمین اصالت کالا
           </p>
-        </div>
+        </motion.div>
 
-        <div>
-          <div class="text-3xl">
+
+        <!-- پرداخت آسان -->
+        <motion.div
+          class="
+            group
+            rounded-2xl
+            transition-colors
+            duration-300
+            hover:bg-white/5
+          "
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :whileHover="{ y: -6 }"
+          :viewport="{ once: true }"
+          :transition="{
+            duration: 0.5,
+            delay: 0.3,
+            ease: 'easeOut'
+          }"
+        >
+          <div
+            class="
+              text-3xl
+              transition-transform
+              duration-300
+              group-hover:scale-110
+            "
+          >
             💳
           </div>
 
@@ -131,10 +293,36 @@ function handleAddToCart(product: Product) {
           >
             روش‌های متنوع پرداخت
           </p>
-        </div>
+        </motion.div>
 
-        <div>
-          <div class="text-3xl">
+
+        <!-- پشتیبانی حرفه‌ای -->
+        <motion.div
+          class="
+            group
+            rounded-2xl
+            transition-colors
+            duration-300
+            hover:bg-white/5
+          "
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :whileHover="{ y: -6 }"
+          :viewport="{ once: true }"
+          :transition="{
+            duration: 0.5,
+            delay: 0.4,
+            ease: 'easeOut'
+          }"
+        >
+          <div
+            class="
+              text-3xl
+              transition-transform
+              duration-300
+              group-hover:scale-110
+            "
+          >
             💬
           </div>
 
@@ -151,10 +339,12 @@ function handleAddToCart(product: Product) {
           >
             پاسخگویی حرفه‌ای
           </p>
-        </div>
+        </motion.div>
 
       </div>
-    </section>
+
+    </motion.section>
 
   </div>
 </template>
+```

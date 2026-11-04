@@ -1,38 +1,56 @@
+
 <script setup lang="ts">
+import { motion } from 'motion-v'
+
 const searchQuery = ref('')
 
 function submitSearch() {
   if (!searchQuery.value.trim()) {
     navigateTo('/products')
-
     return
   }
 
   navigateTo({
     path: '/products',
-
     query: {
       search: searchQuery.value
     }
   })
+}
+
+const animation = {
+  initial: {
+    opacity: 0,
+    y: 40
+  },
+  whileInView: {
+    opacity: 1,
+    y: 0
+  },
+  viewport: {
+    once: true,
+    amount: 0.15
+  },
+  transition: {
+    duration: 0.7,
+    ease: 'easeOut'
+  }
 }
 </script>
 
 <template>
   <section
     class="
-    h-[900px]
       relative
+      h-[900px]
       overflow-hidden
       bg-slate-950
       py-14
       md:py-10
     "
   >
-    
     <!-- نورهای پس‌زمینه -->
-
-    <div
+    <motion.div
       class="
         pointer-events-none
         absolute
@@ -44,9 +62,12 @@ function submitSearch() {
         bg-indigo-600/30
         blur-[140px]
       "
+      :initial="{ opacity: 0, scale: 0.8 }"
+      :animate="{ opacity: 1, scale: 1 }"
+      :transition="{ duration: 1.2, ease: 'easeOut' }"
     />
 
-    <div
+    <motion.div
       class="
         pointer-events-none
         absolute
@@ -58,11 +79,17 @@ function submitSearch() {
         bg-violet-600/25
         blur-[150px]
       "
+      :initial="{ opacity: 0, scale: 0.8 }"
+      :animate="{ opacity: 1, scale: 1 }"
+      :transition="{
+        duration: 1.3,
+        delay: 0.15,
+        ease: 'easeOut'
+      }"
     />
 
     <!-- پس‌زمینه شیشه‌ای -->
-
-    <div
+    <motion.div
       class="
         pointer-events-none
         absolute
@@ -74,14 +101,17 @@ function submitSearch() {
           rgba(255,255,255,0.03)
         )]
       "
+      :initial="{ opacity: 0 }"
+      :animate="{ opacity: 1 }"
+      :transition="{ duration: 1 }"
     />
 
     <div
       class="
         container-shop
         relative
-        mt-[90px]
         z-10
+        mt-[90px]
         grid
         min-h-[580px]
         items-center
@@ -90,7 +120,6 @@ function submitSearch() {
       "
     >
       <!-- متن بنر -->
-
       <div
         class="
           order-2
@@ -99,7 +128,8 @@ function submitSearch() {
           lg:text-right
         "
       >
-        <div
+        <!-- Badge -->
+        <motion.div
           class="
             inline-flex
             items-center
@@ -115,21 +145,37 @@ function submitSearch() {
             text-indigo-200
             backdrop-blur-xl
           "
+          :initial="{ opacity: 0, y: 25, scale: 0.95 }"
+          :animate="{ opacity: 1, y: 0, scale: 1 }"
+          :transition="{
+            duration: 0.6,
+            delay: 0.15,
+            ease: 'easeOut'
+          }"
         >
-          <span
+          <motion.span
             class="
               h-2
               w-2
-              animate-pulse
               rounded-full
               bg-emerald-400
             "
+            :animate="{
+              scale: [1, 1.3, 1],
+              opacity: [1, 0.6, 1]
+            }"
+            :transition="{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }"
           />
 
           خرید هوشمند، سریع و مطمئن
-        </div>
+        </motion.div>
 
-        <h1
+        <!-- Title -->
+        <motion.h1
           class="
             mt-7
             text-4xl
@@ -139,23 +185,39 @@ function submitSearch() {
             sm:text-5xl
             lg:text-6xl
           "
+          :initial="{ opacity: 0, y: 35 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{
+            duration: 0.7,
+            delay: 0.25,
+            ease: 'easeOut'
+          }"
         >
           همه چیز،
-          <span
+          <motion.span
             class="
+              inline-block
               bg-gradient-to-l
               from-violet-300
               to-indigo-400
               bg-clip-text
               text-transparent
             "
+            :initial="{ opacity: 0, y: 15 }"
+            :animate="{ opacity: 1, y: 0 }"
+            :transition="{
+              duration: 0.6,
+              delay: 0.45,
+              ease: 'easeOut'
+            }"
           >
             فقط چند کلیک
-          </span>
+          </motion.span>
           فاصله دارد
-        </h1>
+        </motion.h1>
 
-        <p
+        <!-- Description -->
+        <motion.p
           class="
             mx-auto
             mt-6
@@ -166,15 +228,21 @@ function submitSearch() {
             lg:mx-0
             lg:text-lg
           "
+          :initial="{ opacity: 0, y: 25 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{
+            duration: 0.7,
+            delay: 0.4,
+            ease: 'easeOut'
+          }"
         >
           جدیدترین محصولات دیجیتال، موبایل، لپ‌تاپ،
           پوشاک و لوازم خانه را با بهترین قیمت
           از فروشگاه NEXORA خریداری کنید.
-        </p>
+        </motion.p>
 
         <!-- جستجو -->
-
-        <form
+        <motion.form
           class="
             mx-auto
             mt-9
@@ -189,6 +257,13 @@ function submitSearch() {
             backdrop-blur-xl
             lg:mx-0
           "
+          :initial="{ opacity: 0, y: 25, scale: 0.98 }"
+          :animate="{ opacity: 1, y: 0, scale: 1 }"
+          :transition="{
+            duration: 0.7,
+            delay: 0.5,
+            ease: 'easeOut'
+          }"
           @submit.prevent="submitSearch"
         >
           <input
@@ -207,7 +282,7 @@ function submitSearch() {
             "
           >
 
-          <button
+          <motion.button
             type="submit"
             class="
               shrink-0
@@ -217,17 +292,19 @@ function submitSearch() {
               py-3
               font-black
               text-slate-950
-              transition
-              hover:scale-[1.03]
             "
+            :whileHover="{
+              scale: 1.04,
+              y: -2
+            }"
+            :whileTap="{ scale: 0.96 }"
           >
             جستجو
-          </button>
-        </form>
+          </motion.button>
+        </motion.form>
 
         <!-- دکمه‌ها -->
-
-        <div
+        <motion.div
           class="
             mt-7
             flex
@@ -236,49 +313,66 @@ function submitSearch() {
             gap-4
             lg:justify-start
           "
+          :initial="{ opacity: 0, y: 25 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{
+            duration: 0.7,
+            delay: 0.6,
+            ease: 'easeOut'
+          }"
         >
-          <NuxtLink
-            to="/products"
-            class="
-              rounded-2xl
-              bg-brand
-              px-7
-              py-4
-              font-black
-              text-white
-              shadow-lg
-              shadow-indigo-600/30
-              transition
-              hover:-translate-y-1
-              hover:shadow-xl
-            "
+          <motion.div
+            :whileHover="{ y: -5, scale: 1.02 }"
+            :whileTap="{ scale: 0.97 }"
           >
-            مشاهده فروشگاه
-          </NuxtLink>
+            <NuxtLink
+              to="/products"
+              class="
+                block
+                rounded-2xl
+                bg-brand
+                px-7
+                py-4
+                font-black
+                text-white
+                shadow-lg
+                shadow-indigo-600/30
+                transition
+                hover:shadow-xl
+              "
+            >
+              مشاهده فروشگاه
+            </NuxtLink>
+          </motion.div>
 
-          <NuxtLink
-            to="/offers"
-            class="
-              rounded-2xl
-              border
-              border-white/15
-              bg-white/10
-              px-7
-              py-4
-              font-black
-              text-white
-              backdrop-blur-xl
-              transition
-              hover:bg-white/15
-            "
+          <motion.div
+            :whileHover="{ y: -5, scale: 1.02 }"
+            :whileTap="{ scale: 0.97 }"
           >
-            پیشنهادهای ویژه
-          </NuxtLink>
-        </div>
+            <NuxtLink
+              to="/offers"
+              class="
+                block
+                rounded-2xl
+                border
+                border-white/15
+                bg-white/10
+                px-7
+                py-4
+                font-black
+                text-white
+                backdrop-blur-xl
+                transition
+                hover:bg-white/15
+              "
+            >
+              پیشنهادهای ویژه
+            </NuxtLink>
+          </motion.div>
+        </motion.div>
 
         <!-- آمار -->
-
-        <div
+        <motion.div
           class="
             mt-10
             grid
@@ -288,8 +382,18 @@ function submitSearch() {
             border-white/10
             pt-7
           "
+          :initial="{ opacity: 0, y: 25 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{
+            duration: 0.7,
+            delay: 0.7,
+            ease: 'easeOut'
+          }"
         >
-          <div>
+          <motion.div
+            :whileHover="{ y: -5 }"
+            :transition="{ duration: 0.2 }"
+          >
             <strong
               class="
                 block
@@ -311,9 +415,12 @@ function submitSearch() {
             >
               محصول متنوع
             </span>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div
+            :whileHover="{ y: -5 }"
+            :transition="{ duration: 0.2 }"
+          >
             <strong
               class="
                 block
@@ -335,9 +442,12 @@ function submitSearch() {
             >
               مشتری راضی
             </span>
-          </div>
+          </motion.div>
 
-          <div>
+          <motion.div
+            :whileHover="{ y: -5 }"
+            :transition="{ duration: 0.2 }"
+          >
             <strong
               class="
                 block
@@ -359,13 +469,12 @@ function submitSearch() {
             >
               پشتیبانی
             </span>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       <!-- آبجکت سه‌بعدی -->
-
-      <div
+      <motion.div
         class="
           order-1
           relative
@@ -376,10 +485,16 @@ function submitSearch() {
           lg:order-2
           lg:min-h-[560px]
         "
+        :initial="{ opacity: 0, x: 60, scale: 0.9 }"
+        :animate="{ opacity: 1, x: 0, scale: 1 }"
+        :transition="{
+          duration: 1,
+          delay: 0.25,
+          ease: 'easeOut'
+        }"
       >
         <!-- هاله پشت تصویر -->
-
-        <div
+        <motion.div
           class="
             absolute
             h-[300px]
@@ -390,11 +505,19 @@ function submitSearch() {
             lg:h-[420px]
             lg:w-[420px]
           "
+          :animate="{
+            scale: [1, 1.08, 1],
+            opacity: [0.6, 0.9, 0.6]
+          }"
+          :transition="{
+            duration: 4,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }"
         />
 
         <!-- حلقه شیشه‌ای -->
-
-        <div
+        <motion.div
           class="
             absolute
             h-[300px]
@@ -407,11 +530,18 @@ function submitSearch() {
             lg:h-[430px]
             lg:w-[430px]
           "
+          :animate="{
+            rotate: [0, 360]
+          }"
+          :transition="{
+            duration: 30,
+            repeat: Infinity,
+            ease: 'linear'
+          }"
         />
 
         <!-- تصویر -->
-
-        <div
+        <motion.div
           class="
             hero-3d-float
             relative
@@ -419,6 +549,14 @@ function submitSearch() {
             w-full
             max-w-[620px]
           "
+          :whileHover="{
+            scale: 1.04,
+            rotate: 1
+          }"
+          :transition="{
+            duration: 0.4,
+            ease: 'easeOut'
+          }"
         >
           <img
             src="/images/hero-shopping-3d.png"
@@ -431,11 +569,10 @@ function submitSearch() {
             "
             draggable="false"
           >
-        </div>
+        </motion.div>
 
         <!-- کارت شیشه‌ای -->
-
-        <div
+        <motion.div
           class="
             absolute
             bottom-5
@@ -453,6 +590,17 @@ function submitSearch() {
             backdrop-blur-xl
             lg:block
           "
+          :initial="{ opacity: 0, x: 30, y: 20 }"
+          :animate="{ opacity: 1, x: 0, y: 0 }"
+          :transition="{
+            duration: 0.7,
+            delay: 0.9,
+            ease: 'easeOut'
+          }"
+          :whileHover="{
+            y: -6,
+            scale: 1.03
+          }"
         >
           <p
             class="
@@ -473,8 +621,8 @@ function submitSearch() {
           >
             تحویل در کوتاه‌ترین زمان
           </strong>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   </section>
 </template>
@@ -503,8 +651,6 @@ function submitSearch() {
   }
 }
 
-/* برای کاربرانی که انیمیشن را غیرفعال کرده‌اند */
-
 @media (
   prefers-reduced-motion: reduce
 ) {
@@ -513,3 +659,4 @@ function submitSearch() {
   }
 }
 </style>
+

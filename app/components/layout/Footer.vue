@@ -27,7 +27,7 @@
           sm:text-3xl
         "
       >
-        <img src="C:\Users\AMT\Desktop\nexora\public\images\logo\logo-buld2.png" class="
+        <img src="/images/logo/logo-buld2.png" class="
 
           max-w-[200px]
 

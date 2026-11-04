@@ -107,7 +107,7 @@ function searchProducts() {
         "
       >
         <img
-          src="C:\Users\AMT\Desktop\nexora\public\images\logo\logo-buld.png"
+          src="/images/logo/logo-buld.png"
           class="
             max-w-[220px]
             items-center

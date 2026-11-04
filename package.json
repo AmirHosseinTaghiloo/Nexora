@@ -29,6 +29,7 @@
     "@tiptap/starter-kit": "^3.29.2",
     "@tiptap/suggestion": "^3.29.2",
     "@tiptap/vue-3": "^3.29.2",
+    "motion-v": "^2.4.0",
     "nuxt": "^4.5.1",
     "nuxt-auth-utils": "^0.5.30",
     "pinia": "^4.0.2",
