@@ -137,7 +137,7 @@ function formatPrice(price: number) {
             <!-- Product image -->
 
             <NuxtLink
-              :to="`/products/${item.id}`"
+              :to="`/products/${item.slug}`"
               class="
                 h-32
                 w-full
@@ -151,6 +151,8 @@ function formatPrice(price: number) {
               <img
                 :src="item.image"
                 :alt="item.title"
+                loading="lazy"
+                decoding="async"
                 class="
                   h-full
                   w-full

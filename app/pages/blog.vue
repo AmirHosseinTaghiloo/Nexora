@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
+useSiteSeo({
+  title: 'مجله فناوری و راهنمای خرید',
+  description: 'مقالات آموزشی، راهنمای خرید، بررسی محصولات و مطالب دنیای فناوری را در مجله NEXORA دنبال کنید.',
+  image: '/images/hero-shopping-3d.png'
+})
+
 type BlogItem = {
   id: number
   title: string
@@ -561,6 +567,8 @@ function scrollToArticles() {
           <img
             :src="featuredPost.image"
             :alt="featuredPost.title"
+            loading="lazy"
+            decoding="async"
             class="
               absolute
               inset-0
@@ -814,6 +822,8 @@ function scrollToArticles() {
                 <img
                   :src="post.image"
                   :alt="post.title"
+                  loading="lazy"
+                  decoding="async"
                   class="
                     h-full
                     w-full

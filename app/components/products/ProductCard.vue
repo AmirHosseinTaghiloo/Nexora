@@ -51,7 +51,7 @@ hover:shadow-xl
 
 <NuxtLink
 
-:to="`/products/${product.id}`"
+:to="`/products/${product.slug}`"
 
 class="
 relative

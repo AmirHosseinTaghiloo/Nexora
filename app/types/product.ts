@@ -1,41 +1,29 @@
 export interface Product {
   id: number
-
   slug: string
-
   title: string
-
-  brand: string
-
   category: string
 
   image: string
-
-  gallery: string[]
+  images: string[]
 
   description: string
-
   price: number
-
   oldPrice?: number
-
   discount?: number
 
   stock: number
-
-  sold: number
-
   rating: number
-
   reviews: number
 
   badge?: string
+  specs: string[]
 
-  isNew: boolean
-
-  isFeatured: boolean
-
-  colors: string[]
-
-  tags: string[]
+  // Optional catalog attributes for future product types.
+  brand?: string
+  sold?: number
+  isNew?: boolean
+  isFeatured?: boolean
+  colors?: string[]
+  tags?: string[]
 }

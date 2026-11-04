@@ -89,7 +89,7 @@ export const products = [
 {
  id:3,
 
- slug:"Samsung-Galaxy-S25-Ultra-5G",
+ slug:"samsung-galaxy-s25-ultra-5g",
 
  title:"Galaxy S25 Ultra 5G",
 
@@ -122,7 +122,7 @@ export const products = [
 
  specs:[
   "حافظه 256 گیگابایت",
-  "رم 812 گیگابایت",
+  "رم 12 گیگابایت",
   "نمایشگر Super AmoLED"
  ]
 
@@ -130,7 +130,7 @@ export const products = [
 {
  id:4,
 
- slug:"Apple-Watch-Series-11",
+ slug:"apple-watch-series-11",
 
  title:"Apple Watch Series 11 46mm",
 

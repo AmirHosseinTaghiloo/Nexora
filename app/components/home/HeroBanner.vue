@@ -193,7 +193,7 @@ const animation = {
             ease: 'easeOut'
           }"
         >
-          همه چیز،
+          خرید آنلاین
           <motion.span
             class="
               inline-block
@@ -211,9 +211,9 @@ const animation = {
               ease: 'easeOut'
             }"
           >
-            فقط چند کلیک
+            موبایل و کالای دیجیتال
           </motion.span>
-          فاصله دارد
+          با چند کلیک
         </motion.h1>
 
         <!-- Description -->
@@ -560,7 +560,10 @@ const animation = {
         >
           <img
             src="/images/hero-shopping-3d.png"
-            alt="خرید آنلاین در فروشگاه NEXORA"
+            alt="خرید آنلاین موبایل و کالای دیجیتال از NEXORA"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
             class="
               h-auto
               w-full

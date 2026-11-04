@@ -9,7 +9,9 @@ const wishlistStore = useWishlistStore()
 
 const product = computed(() => {
   return products.find(
-    item => String(item.id) === String(route.params.id)
+    item =>
+      item.slug.toLowerCase() ===
+      String(route.params.slug).toLowerCase()
   )
 })
 
@@ -37,6 +39,68 @@ const productImages = computed(() => {
 
   return []
 })
+
+const seoTitle = computed(() =>
+  product.value
+    ? `خرید ${product.value.title}؛ قیمت و مشخصات`
+    : 'محصول فروشگاه'
+)
+
+const seoDescription = computed(() => {
+  if (!product.value) return 'مشاهده مشخصات و قیمت محصولات NEXORA.'
+
+  const description = `${product.value.title}: ${product.value.description || 'مشاهده مشخصات و قیمت محصول'}`
+  return description.slice(0, 160)
+})
+
+useSiteSeo({
+  title: seoTitle,
+  description: seoDescription,
+  image: computed(() => product.value?.image)
+})
+
+const runtimeConfig = useRuntimeConfig()
+const siteUrl = String(runtimeConfig.public.siteUrl || '')
+  .replace(/\/+$/, '')
+
+const productStructuredData = computed(() => {
+  const item = product.value
+  if (!item || !siteUrl) return null
+
+  const productUrl = new URL(route.path, `${siteUrl}/`).toString()
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: item.title,
+    description: item.description,
+    image: productImages.value.map(image =>
+      new URL(image, `${siteUrl}/`).toString()
+    ),
+    category: item.category,
+    offers: {
+      '@type': 'Offer',
+      url: productUrl,
+      priceCurrency: 'IRR',
+      // Store prices are in toman; Schema.org receives rial.
+      price: Math.round(Number(item.price) * 10),
+      availability: item.stock > 0
+        ? 'https://schema.org/InStock'
+        : 'https://schema.org/OutOfStock'
+    }
+  }
+})
+
+useHead(() => ({
+  script: productStructuredData.value
+    ? [{
+        key: 'product-jsonld',
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(productStructuredData.value)
+          .replace(/</g, '\\u003c')
+      }]
+    : []
+}))
 
 const activeImageIndex = ref(0)
 
@@ -367,6 +431,9 @@ onMounted(() => {
                 v-if="activeImage"
                 :src="activeImage"
                 :alt="product?.title"
+                fetchpriority="high"
+                loading="eager"
+                decoding="async"
                 class="
                   h-[420px]
                   w-full
@@ -540,6 +607,8 @@ onMounted(() => {
                 <img
                   :src="image"
                   :alt="`${product?.title} ${index + 1}`"
+                  loading="lazy"
+                  decoding="async"
                   class="
                     h-full
                     w-full

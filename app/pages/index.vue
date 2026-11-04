@@ -1,4 +1,3 @@
-```vue
 <script setup lang="ts">
 import { motion } from 'motion-v'
 
@@ -6,6 +5,12 @@ import HomeSquareBanners from '~/components/home/banners/HomeSquareBanners.vue'
 import HomeWideBanners from '~/components/home/banners/HomeWideBanners.vue'
 import { products } from '~/data/products'
 import type { Product } from '~/types/product'
+
+useSiteSeo({
+  title: 'خرید آنلاین موبایل و کالای دیجیتال',
+  description: 'خرید آنلاین موبایل، لپ‌تاپ و لوازم دیجیتال از NEXORA. مشخصات و قیمت محصولات را بررسی کنید و با اطمینان انتخاب کنید.',
+  image: '/images/hero-shopping-3d.png'
+})
 
 const cartStore = useCartStore()
 
@@ -347,4 +352,3 @@ const animation = {
 
   </div>
 </template>
-```
