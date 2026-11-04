@@ -42,11 +42,13 @@ const animation = {
   <section
     class="
       relative
-      h-[900px]
+      h-auto
+      min-h-0
       overflow-hidden
       bg-slate-950
-      py-14
-      md:py-10
+      py-10
+      sm:py-14
+      lg:h-[900px]
     "
   >
     <!-- نورهای پس‌زمینه -->
@@ -111,11 +113,15 @@ const animation = {
         container-shop
         relative
         z-10
-        mt-[90px]
+        mt-0
         grid
-        min-h-[580px]
+        min-h-0
         items-center
-        gap-10
+        gap-6
+        sm:gap-8
+        lg:mt-[90px]
+        lg:min-h-[580px]
+        lg:gap-10
         lg:grid-cols-2
       "
     >
@@ -178,11 +184,12 @@ const animation = {
         <motion.h1
           class="
             mt-7
-            text-4xl
+            text-3xl
             font-black
-            leading-[1.5]
+            leading-[1.45]
             text-white
-            sm:text-5xl
+            sm:text-4xl
+            md:text-5xl
             lg:text-6xl
           "
           :initial="{ opacity: 0, y: 35 }"
@@ -222,9 +229,11 @@ const animation = {
             mx-auto
             mt-6
             max-w-xl
-            text-base
-            leading-9
+            text-sm
+            leading-8
             text-slate-300
+            sm:text-base
+            sm:leading-9
             lg:mx-0
             lg:text-lg
           "
@@ -479,9 +488,10 @@ const animation = {
           order-1
           relative
           flex
-          min-h-[380px]
+          min-h-[250px]
           items-center
           justify-center
+          sm:min-h-[320px]
           lg:order-2
           lg:min-h-[560px]
         "
@@ -547,7 +557,8 @@ const animation = {
             relative
             z-10
             w-full
-            max-w-[620px]
+            max-w-[min(100%,420px)]
+            lg:max-w-[620px]
           "
           :whileHover="{
             scale: 1.04,

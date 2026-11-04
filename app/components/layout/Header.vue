@@ -62,10 +62,16 @@ function searchProducts() {
       class="
         container-shop
         flex
-        h-20
+        h-16
+        w-full
+        min-w-0
         items-center
-        gap-4
-        px-4
+        justify-between
+        gap-2
+        px-3
+        sm:h-20
+        sm:gap-4
+        sm:px-4
       "
     >
       <!-- Mobile menu -->
@@ -99,19 +105,30 @@ function searchProducts() {
       <NuxtLink
         to="/"
         class="
+          flex
+          min-w-0
+          flex-1
+          items-center
+          justify-center
           text-2xl
           font-black
           tracking-tight
           text-white
           sm:text-3xl
+          lg:flex-none
+          lg:justify-start
         "
       >
         <img
           src="/images/logo/logo-buld.png"
           class="
-            max-w-[220px]
-            items-center
+            block
+            h-auto
+            w-[clamp(100px,30vw,170px)]
+            max-w-full
             rounded-2xl
+            sm:w-auto
+            sm:max-w-[220px]
           "
         >
       </NuxtLink>
@@ -187,8 +204,10 @@ function searchProducts() {
       <div
         class="
           flex
+          shrink-0
           items-center
-          gap-2
+          gap-1
+          sm:gap-2
         "
       >
         <NuxtLink
@@ -198,10 +217,12 @@ function searchProducts() {
             items-center
             gap-2
             rounded-xl
-            px-4
-            py-3
+            px-2
+            py-2
             font-bold
             text-white/80
+            sm:px-4
+            sm:py-3
             transition
             hover:bg-white/10
             hover:text-white
@@ -211,7 +232,7 @@ function searchProducts() {
             ♡
           </span>
 
-          <span>
+          <span class="hidden sm:inline">
             علاقه‌مندی‌ها
           </span>
         </NuxtLink>
@@ -242,11 +263,14 @@ function searchProducts() {
           class="
             flex
             items-center
-            gap-2
+            gap-1
             rounded-xl
             bg-white
-            px-4
-            py-3
+            px-3
+            py-2
+            sm:gap-2
+            sm:px-4
+            sm:py-3
             font-bold
             text-[#0d0d2e]
             shadow-lg
@@ -258,7 +282,7 @@ function searchProducts() {
         >
           <span>🛒</span>
 
-          <span class="hidden sm:block">
+          <span class="hidden md:block">
             سبد خرید
           </span>
 
