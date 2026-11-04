@@ -1,4 +1,9 @@
 <script setup lang="ts">
+useSiteSeo({
+  title: 'درباره NEXORA',
+  description: 'با فروشگاه اینترنتی NEXORA، حوزه فعالیت، خدمات و راه‌های ارتباط با ما آشنا شوید.'
+})
+
 const stats = [
   {
     value: '10K+',

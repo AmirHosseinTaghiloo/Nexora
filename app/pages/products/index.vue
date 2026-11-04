@@ -3,6 +3,12 @@ import ProductCard from '~/components/products/ProductCard.vue'
 import { products } from '~/data/products'
 import type { Product } from '~/types/product'
 
+useSiteSeo({
+  title: 'خرید انواع محصولات دیجیتال',
+  description: 'مشاهده و مقایسه محصولات دیجیتال در NEXORA؛ خرید موبایل، لپ‌تاپ و ساعت هوشمند همراه با قیمت و مشخصات.',
+  image: '/images/hero-shopping-3d.png'
+})
+
 const route = useRoute()
 
 const cartStore = useCartStore()

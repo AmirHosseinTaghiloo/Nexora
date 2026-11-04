@@ -27,7 +27,10 @@
           sm:text-3xl
         "
       >
-        <img src="/images/logo/logo-buld2.png" class="
+        <img
+          src="/images/logo/logo-buld2.png"
+          alt="NEXORA"
+          class="
 
           max-w-[200px]
 
@@ -47,6 +50,36 @@
           تجربه‌ای مدرن، سریع و مطمئن برای خرید آنلاین
           از میان هزاران محصول متنوع.
         </p>
+
+        <a
+          href="https://github.com/AmirHosseinTaghiloo"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="مشاهده پروفایل GitHub امیرحسین تقی‌لو"
+          class="
+            mt-6
+            inline-flex
+            w-fit
+            items-center
+            gap-3
+            rounded-2xl
+            border
+            border-white/15
+            bg-white/5
+            px-5
+            py-3
+            font-bold
+            text-white
+            transition
+            hover:-translate-y-1
+            hover:border-white/30
+            hover:bg-white/10
+          "
+        >
+          <span class="text-xl" aria-hidden="true">⌘</span>
+          مشاهده پروفایل GitHub
+          <span aria-hidden="true">↗</span>
+        </a>
       </div>
 
       <div>
@@ -63,15 +96,15 @@
           "
         >
           <NuxtLink to="/products">
-            راهنمای ثبت سفارش
+            مشاهده محصولات
           </NuxtLink>
 
-          <NuxtLink to="/shipping">
-            روش‌های ارسال
+          <NuxtLink to="/blog">
+            راهنمای خرید و مقالات
           </NuxtLink>
 
-          <NuxtLink to="/payment">
-            شیوه‌های پرداخت
+          <NuxtLink to="/about-us">
+            درباره NEXORA
           </NuxtLink>
         </div>
       </div>
@@ -89,16 +122,16 @@
             text-slate-400
           "
         >
-          <NuxtLink to="/faq">
-            سوالات متداول
+          <NuxtLink to="/account">
+            حساب کاربری
           </NuxtLink>
 
-          <NuxtLink to="/returns">
-            شرایط بازگشت کالا
+          <NuxtLink to="/wishlist">
+            علاقه‌مندی‌ها
           </NuxtLink>
 
-          <NuxtLink to="/contact">
-            تماس با ما
+          <NuxtLink to="/cart">
+            سبد خرید
           </NuxtLink>
         </div>
       </div>
